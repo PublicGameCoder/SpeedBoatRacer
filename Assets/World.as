@@ -7,7 +7,7 @@
 
 	public class World extends Game {
 
-		public static var worldBounds: Vector3;
+		public var worldBounds: Vector3;
 		private var WorldList: Array = new Array();
 		private var _root;
 		private var LandGrid: Array;
@@ -122,23 +122,6 @@
 
 		public function setPlayer(player: MovieClip): void {
 			this.player = player;
-		}
-
-		public function getGridPosByCords2D(object:Object): Object {
-			
-			var topLeftStage: Point = object.localToGlobal(new Point(0, 0));
-
-			var bottomRightStage: Point = object.localToGlobal(new Point(width, height));
-			
-			for (var yval = 0; yval < LandGrid.length; yval++) {
-				for (var xval = 0; xval < LandGrid[yval].length; xval++) {
-
-					if (LandGrid[yval][xval]) {
-
-					}
-				}
-			}
-			return object;
 		}
 	}
 

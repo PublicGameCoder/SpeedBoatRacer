@@ -28,45 +28,13 @@
 
 			this.x = _root.stage.stageWidth - 300;
 			this.y = _root.stage.stageHeight - 200;
-
-			GeneratePath(World);
+			
 			_root.stage.addEventListener(Event.ENTER_FRAME, _Update);
 			addChild(enemy);
 		}
 
 		private function _Update(e: Event): void {
 
-		}
-
-		private function GeneratePath(World: Array): void {
-			var map:Array = new Array();
-			for (var index = 0; index < World.length; index++) {
-				trace("1");
-				if (World[index] is Land) {
-					map[index] = 1;
-				}else if (World[index] is Rock) {
-					map[index] = 1;
-				}else {
-					map[index] = 0;
-				}
-			}
-			trace("2");
-			var pt: Pathfinder = new Pathfinder();
-			trace("3");
-			pt.loadMap(map, (World.worldBounds.y / 50), (World.worldBounds.x / 50) );
-			trace("4");
-			var path: Array = pt.getPath(new Point(1, 1), new Point(8, 8), false);
-			trace("5");
-
-			var myShape: Shape = new Shape();
-			addChild(myShape);
-
-			myShape.graphics.lineStyle(2, 0x990000, 5);
-
-			for (var i: int = 0; i < path.length; i++) {
-				trace(path[i].x, path[i].y)
-				myShape.graphics.lineTo(path[i].x, path[i].y);;
-			}
 		}
 	}
 }
